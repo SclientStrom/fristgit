@@ -16,11 +16,12 @@
         http://www.springframework.org/schema/util
         http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <!-- aop自动代理 -->
-    <aop:aspectj-autoproxy />
-    <!-- 开启注解-->
-    <context:annotation-config />
-    <!--  扫描包  自带annotations-drive-->
-    <context:component-scan base-package="com.learn" />
-  <!--  <context:component-scan base-package="com.learn.* *.service" annotation-config="true" />-->
+    <!-- <bean id="helloService" class="com.learn.service.impl.HelloServiceImpl" />-->
+    <bean id="filterAop" class="com.learn.aop.HellowServiceFilter"/>
+    <aop:config>
+        <aop:aspect id="point" ref="filterAop">
+            <aop:pointcut id="addMethod" expression="execution(* (com.learn.service.HelloService).*(..))" />
+            <aop:around method="filter" pointcut-ref="addMethod"></aop:around>
+        </aop:aspect>
+    </aop:config>
 </beans>
