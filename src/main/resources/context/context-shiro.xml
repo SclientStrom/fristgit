@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        <!-- shiroFilter工厂-->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!--构建securityManager环境-->
+        <property name="securityManager" ref="securityManager" />
+        <property name="loginUrl" value="/index.html"/>
+        <property name="successUrl" value="/success.htm"/>
+        <property name="unauthorizedUrl" value="/refused.htm" />
+        <property name="filterChainDefinitions">
+            <value>
+                <!--/index.html=anon-->
+                /logout.htm=logout
+                /index**=anon
+                /**=authc,roles[admin]
+            </value>
+        </property>
+    </bean>
+    <!-- 配置缓存管理器 -->
+    <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <!-- 指定 ehcache 的配置文件 -->
+        <property name="cacheManagerConfigFile" value="classpath:ehcache-shiro.xml"/>
+    </bean>
+    <!-- securityManager -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="cacheManager" ref="cacheManager"/>
+        <!--调用自定义realm -->
+        <property name="realm" ref="myRealm" />
+    </bean>
+    <bean id="myRealm" class="com.learn.fliter.shiro.MyRealm"></bean>
+</beans>

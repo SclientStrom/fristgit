@@ -17,7 +17,7 @@
         http://www.springframework.org/schema/util/spring-util.xsd">
 
     <!-- <bean id="helloService" class="com.learn.service.impl.HelloServiceImpl" />-->
-    <bean id="filterAop" class="com.learn.aop.HellowServiceFilter"/>
+    <bean id="filterAop" class="com.learn.fliter.aop.HellowServiceFilter"/>
     <aop:config>
         <aop:aspect id="point" ref="filterAop">
             <aop:pointcut id="addMethod" expression="execution(* (com.learn.service.HelloService).*(..))" />

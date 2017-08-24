@@ -9,6 +9,7 @@
     <param-value>
         classpath:context/context.xml
         classpath:context/context-aop.xml
+        classpath:context/context-shiro.xml
     </param-value>
   </context-param>
 
