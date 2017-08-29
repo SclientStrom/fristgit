@@ -1,0 +1,12 @@
+.container{
+    width: 20%;
+    margin: 0 auto;
+    height: 10%;
+    padding-top: 10%;
+}
+input,button{
+    margin-top: 5%;
+}
+h2{
+    text-align: center;
+}
