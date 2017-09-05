@@ -13,6 +13,9 @@ $(function () {
             alert("请求失败");
         }
     });
+    $(".form-control").focus(function () {
+        $(".error").hide();
+    });
     $('form').bootstrapValidator({
         message: 'This value is not valid',
         /*feedbackIcons: {
@@ -28,7 +31,7 @@ $(function () {
                         message: '用户名不能为空'
                     },
                     regexp: {
-                        regexp: /^[a-zA-Z0-9_]{8,16}$/,
+                        regexp: /^[a-zA-Z0-9_]{6,10}$/,
                         message: '用户名长度为6到10位（大小写字母、数字和下划线）'
                     }
                 }

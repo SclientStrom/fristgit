@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>用户登录</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style/index.css">
-    <link href="style/bootstrap/bootstrapValidator.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="#springUrl('/style/index.css')">
+    <link href="#springUrl('/style/bootstrap/bootstrapValidator.min.css')" rel="stylesheet" />
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
     <script src="script/bootstrap/bootstrapValidator.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="script/index.js"></script>
+    <script src="../../script/index.js"></script>
 
 </head>
 <body>
@@ -21,11 +21,17 @@
         </div>
         <div class="form-group">
             <input type="password" class="form-control" name="password" placeholder="密码" />
+            <h6 class="error">
+                #if($!msg=="loginError")
+                    用户名或密码错误,请重新登录
+                #end
+            </h6>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-lg btn-primary btn-block">登录</button>
         </div>
     </form>
+
 </div>
 </body>
 </html>

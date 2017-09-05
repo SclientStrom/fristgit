@@ -13,9 +13,10 @@
         <property name="filterChainDefinitions">
             <value>
                 /index.html=anon
-                /pages/success.html=anon
+                /pages/login.html=anon
                 /pages/error.html=anon
                 /pages/404.html=anon
+                /pages/success.html=roles[admin]
                 /pages/user/* =roles[user]
             </value>
         </property>

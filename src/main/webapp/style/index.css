@@ -10,3 +10,7 @@ input,button{
 h2{
     text-align: center;
 }
+.error{
+    color: #FF0000;
+    text-align: center;
+}

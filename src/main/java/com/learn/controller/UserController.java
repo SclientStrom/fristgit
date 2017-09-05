@@ -1,5 +1,4 @@
 package com.learn.controller;
-import com.learn.controller.res.UserRes;
 import com.learn.entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,9 +9,9 @@ import java.util.List;
 
 @Controller
 public class UserController {
-    @RequestMapping("index.htm")
+    @RequestMapping("success.htm")
     public String homeView(){
-        return "index";
+        return "success";
     }
 
     @RequestMapping("index.json")
