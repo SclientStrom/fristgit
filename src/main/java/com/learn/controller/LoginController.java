@@ -35,11 +35,10 @@ public class LoginController {
             subject.login(usernamePasswordToken);   //完成登录
             UserLogin user=(UserLogin) subject.getPrincipal();
             session.setAttribute("user", user);
-            return "pages/success";
+            return "success";
         } catch(Exception e) {
             attr.addFlashAttribute("error","loginError");
             return "redirect:index.htm";//返回登录页面
         }
-
     }
 }

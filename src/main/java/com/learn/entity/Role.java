@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Role {
     private String rname;
-//    private List<UserModule> modules;
+    private List<UserModule> modules;
 
     public String getRname() {
         return rname;
@@ -14,11 +14,19 @@ public class Role {
         this.rname = rname;
     }
 
-//    public List<UserModule> getModules() {
-//        return modules;
-//    }
+    public List<UserModule> getModules() {
+        return modules;
+    }
 
-//    public void setModules(List<UserModule> modules) {
-//        this.modules = modules;
-//    }
+    public void setModules(List<UserModule> modules) {
+        this.modules = modules;
+    }
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "rname='" + rname + '\'' +
+                ", modules=" + modules +
+                '}';
+    }
 }

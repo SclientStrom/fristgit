@@ -3,6 +3,7 @@ package com.learn.shiro;
 import com.learn.entity.Role;
 import com.learn.entity.User;
 import com.learn.entity.UserLogin;
+import com.learn.entity.UserModule;
 import com.learn.service.UserLoginService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
@@ -11,7 +12,10 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ShiroDbRealm extends AuthorizingRealm {
     @Autowired
@@ -20,8 +24,17 @@ public class ShiroDbRealm extends AuthorizingRealm {
         UserLogin user= (UserLogin) principal.fromRealm(this.getClass().getName()).iterator().next();
         SimpleAuthorizationInfo info=new SimpleAuthorizationInfo();
         List<Role>roles=user.getRoles();
-        roles.stream().map(Role :: getRname);
-        return null;
+        //获取用户角色
+        List<String> collect = roles.stream().map(Role::getRname).collect(Collectors.toList());
+        //获取用户权限
+        List<String> permissions=new ArrayList<>();
+       roles.forEach(role -> {
+                   permissions.addAll(role.getModules().stream().map(UserModule::getmName).collect(Collectors.toList()));
+               }
+       );
+       info.addStringPermissions(permissions);
+       info.addRoles(collect);
+        return info;
     }
 
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {

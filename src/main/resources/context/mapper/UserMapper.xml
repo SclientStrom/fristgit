@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.learn.dao.UserDao">
+    <resultMap id="userMap" type="com.learn.entity.UserLogin">
+        <result column="username" property="userName" jdbcType="VARCHAR" />
+        <result column="password" property="passWord" jdbcType="VARCHAR"/>
+        <collection property="roles" ofType="roleMap" column="r_id" select="findRole"/>
+    </resultMap>
+    <resultMap id="roleMap" type="com.learn.entity.Role">
+        <result column="role" property="rname" jdbcType="VARCHAR"/>
+        <collection property="modules" ofType="moduleMap" column="m_id" select="findModule"/>
+    </resultMap>
+    <resultMap id="moduleMap" type="com.learn.entity.UserModule">
+        <result column="moudle" property="mName" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="getUser" parameterType="int" resultMap="userMap">
+        SELECT  * FROM  USER WHERE id=#{id}
+    </select>
+    <select id="findByUserName" parameterType="java.lang.String" resultMap="userMap">
+        SELECT  * FROM  USER WHERE username=#{username}
+    </select>
+    <select id="findRole" resultMap="roleMap" parameterType="int">
+        SELECT * FROM u_r_relation ur LEFT JOIN ROLE r ON ur.rid=r.rid WHERE ur.r_id=#{r_id}
+    </select>
+
+    <select id="findModule" resultMap="moduleMap" parameterType="int">
+        SELECT * FROM r_m_relation rm LEFT  JOIN permissions p on rm.mid=p.mid WHERE rm.m_id=#{m_id}
+    </select>
+</mapper>

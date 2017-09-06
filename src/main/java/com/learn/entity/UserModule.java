@@ -1,6 +1,13 @@
 package com.learn.entity;
 
 public class UserModule {
+    @Override
+    public String toString() {
+        return "UserModule{" +
+                "mName='" + mName + '\'' +
+                '}';
+    }
+
     private String mName;
 
     public String getmName() {
@@ -10,4 +17,5 @@ public class UserModule {
     public void setmName(String mName) {
         this.mName = mName;
     }
+
 }

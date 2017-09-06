@@ -31,5 +31,17 @@
     <div class="user">
     </div>
     <div class="userInfo"></div>
+    #if($shiro.hasPermission("query"))
+        查询
+    #end
+    #if($shiro.hasPermission("add"))
+        增加
+    #end
+    #if($shiro.hasPermission("delete"))
+        删除
+    #end
+    #if($shiro.hasPermission("modify"))
+        修改
+    #end
 </body>
 </html>
