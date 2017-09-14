@@ -7,19 +7,17 @@
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean" >
         <!-- 装配securityManager-->
         <property name="securityManager" ref="securityManager" />
-        <property name="loginUrl" value="/login.html"/>
-        <property name="successUrl" value="/pages/success.html" />
+        <property name="loginUrl" value="/index.html"/>
+        <property name="successUrl" value="/login.htm" />
         <property name="unauthorizedUrl" value="/pages/unauthorized.html" />
-        <property name="filterChainDefinitions">
+        <!--<property name="filterChainDefinitions">
             <value>
                 /index.html=anon
-                /pages/login.html=anon
-                /pages/error.html=anon
-                /pages/404.html=anon
-                /pages/success.html=roles[admin]
-                /pages/user/* =roles[user]
+                /pages/login.htm=anon
+                /pages/error.htm=anon
+                /page/success.html =roles[user]
             </value>
-        </property>
+        </property>-->
     </bean>
     <!-- 配置缓存管理器 -->
     <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">

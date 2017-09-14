@@ -1,47 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>主页</title>
     <meta charset="UTF-8">
-    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
-    <script type="application/javascript" src="#springUrl('/script/index.js')"></script>
-    <style type="text/css" >
-        *{
-            margin: 0;
-            padding: 0;
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="style/bootstrap/bootstrapValidator.min.css" rel="stylesheet" />
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="script/bootstrap/bootstrapValidator.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .container{
+            margin:0 0;
+            /*padding: 0 0;*/
+            width:100%;
         }
-        .user{
-            width: 80%;
-            height: 30px;
-            margin: 0 auto;
+        .userPanel{
+            margin-top: 2%;
         }
-        .left{
-            float: left;
-            width: 50%;
-            height: 30px;
-        }
-        .right{
-            float: left;
-            width: 50%;
-            height: 30px;
+        .userPanel, .userPanel ul li{
+            float: right;
+            margin-right: 5px;
+            list-style: none;
         }
     </style>
-    <title>主页</title>
 </head>
 <body>
-    <div class="user">
+   <!-- <div class="user">
     </div>
-    <div class="userInfo"></div>
-    #if($shiro.hasPermission("query"))
-        查询
-    #end
-    #if($shiro.hasPermission("add"))
-        增加
-    #end
-    #if($shiro.hasPermission("delete"))
-        删除
-    #end
-    #if($shiro.hasPermission("modify"))
-        修改
-    #end
+    <div class="userInfo"></div>-->
+   <div class="container">
+       <div class="row clearfix">
+           <div class="col-md-12 column">
+               <div id="top">
+                   <div id="topBar">
+                       <div class="userPanel">
+                           <ul>
+                               <li>
+                                   <a rel="nofollow" href="#">手机版</a>
+                               </li>
+                               <li>
+                                   <a rel="nofollow" href="#">设为首页</a>
+                               </li>
+                               <li>
+                                   <a rel="nofollow" href="#">加入收藏</a>
+                               </li>
+                               <li>
+                                   <a rel="nofollow" href="#">联系我们</a>
+                               </li>
+                           </ul>
+                       </div>
+                       <div class="welcome">
+                           欢迎光www.layoutit.cn 可视化布局！
+                       </div>
+                   </div>
+
+               </div>
+           </div>
+               <div class="articleContent">
+                   <h3 class="title">
+                       layoutit-bootstrap layout可视化布局系统
+                   </h3>
+                   <div class="property">
+                       <span>文章来源：互联网</span> <span>作者：大L</span> <span>发布时间：2013年12月03日</span> <span>点击数：25</span> <span>【字号：<a rel="nofollow" class="fontZoomA" href="javascript:fontZoomA();">小</a><a class="fontZoomB" href="javascript:fontZoomB();">大</a>】</span>
+                   </div>
+                   <div id="contentTxt">
+                       <p>
+                           <img src="http://www.layoutit.cn/v3/skin/images/banner1.jpg" alt='' />
+                       </p>
+                       <p>
+                           lbootstrap layout可视化布局系统(layoutit)是一款可在线拖放排序、在线编辑的bootstrap可视化编辑器，通过该工具你可以通过拖放的形式的实现在线编辑基于bootstrap的html模板，并可直接生成模板，生成的模板可以直接下载。
+                       </p>
+                   </div>
+               </div>
+
+           </div>
+       </div>
+       <div class="row clearfix">
+           <div class="col-md-2 column">
+               <div class="panel-group" id="panel-736744">
+                   <div class="panel panel-default">
+                       <div class="panel-heading">
+                           <a rel="nofollow" class="panel-title" data-toggle="collapse" data-parent="#panel-736744" href="#panel-element-397424">折叠一</a>
+                       </div>
+                       <div id="panel-element-397424" class="panel-collapse collapse in">
+                           <div class="panel-body">
+                               折叠一的内容...
+                           </div>
+                       </div>
+                   </div>
+                   <div class="panel panel-default">
+                       <div class="panel-heading">
+                           <a rel="nofollow" class="panel-title" data-toggle="collapse" data-parent="#panel-736744" href="#panel-element-962840">折叠二</a>
+                       </div>
+                       <div id="panel-element-962840" class="panel-collapse collapse">
+                           <div class="panel-body">
+                               折叠二的内容...
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="col-md-10 column">
+               <table class="table table-bordered">
+                   <thead>
+                   <tr>
+                       <th>
+                           编号
+                       </th>
+                       <th>
+                           产品
+                       </th>
+                       <th>
+                           上线时间
+                       </th>
+                       <th>
+                           状态
+                       </th>
+                   </tr>
+                   </thead>
+                   <tbody>
+                   <tr>
+                       <td>
+                           1
+                       </td>
+                       <td>
+                           TB - Monthly
+                       </td>
+                       <td>
+                           01/04/2012
+                       </td>
+                       <td>
+                           Default
+                       </td>
+                   </tr>
+                   <tr class="active">
+                       <td>
+                           1
+                       </td>
+                       <td>
+                           TB - Monthly
+                       </td>
+                       <td>
+                           01/04/2012
+                       </td>
+                       <td>
+                           Approved
+                       </td>
+                   </tr>
+                   <tr class="success">
+                       <td>
+                           2
+                       </td>
+                       <td>
+                           TB - Monthly
+                       </td>
+                       <td>
+                           02/04/2012
+                       </td>
+                       <td>
+                           Declined
+                       </td>
+                   </tr>
+                   <tr class="warning">
+                       <td>
+                           3
+                       </td>
+                       <td>
+                           TB - Monthly
+                       </td>
+                       <td>
+                           03/04/2012
+                       </td>
+                       <td>
+                           Pending
+                       </td>
+                   </tr>
+                   <tr class="danger">
+                       <td>
+                           4
+                       </td>
+                       <td>
+                           TB - Monthly
+                       </td>
+                       <td>
+                           04/04/2012
+                       </td>
+                       <td>
+                           Call in to confirm
+                       </td>
+                   </tr>
+                   </tbody>
+               </table>
+           </div>
+       </div>
+   </div>
+    <!--#if($shiro.hasRole("admin"))-->
+        <!--slient>admin-->
+    <!--#end-->
+    <!--#if($shiro.hasRole("user"))-->
+        <!--admins>user-->
+    <!--#end-->
+    <!--#if($shiro.hasRole("guest"))-->
+        <!--guest>guest-->
+    <!--#end-->
+    <!--#if($shiro.hasPermission("query"))-->
+        <!--查询-->
+    <!--#end-->
+    <!--#if($shiro.hasPermission("add"))-->
+        <!--增加-->
+    <!--#end-->
+    <!--#if($shiro.hasPermission("delete"))-->
+        <!--删除-->
+    <!--#end-->
+    <!--#if($shiro.hasPermission("modify"))-->
+        <!--修改-->
+    <!--#end-->
 </body>
 </html>

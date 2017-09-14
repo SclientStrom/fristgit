@@ -1,6 +1,7 @@
 package com.learn.controller;
 
 import com.learn.entity.UserLogin;
+import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
@@ -29,6 +30,9 @@ public class LoginController {
     }
     @RequestMapping("login.htm")
     public String loginUser(String username, String password, HttpSession session, RedirectAttributes attr) {
+        if(StringUtils.isEmpty(username) || StringUtils.isEmpty(password)){
+            return "redirect:index.htm";//返回登录页面
+        }
         UsernamePasswordToken usernamePasswordToken=new UsernamePasswordToken(username,password);
         Subject subject = SecurityUtils.getSubject();
         try {

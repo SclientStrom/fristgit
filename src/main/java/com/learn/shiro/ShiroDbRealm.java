@@ -25,7 +25,7 @@ public class ShiroDbRealm extends AuthorizingRealm {
         SimpleAuthorizationInfo info=new SimpleAuthorizationInfo();
         List<Role>roles=user.getRoles();
         //获取用户角色
-        List<String> collect = roles.stream().map(Role::getRname).collect(Collectors.toList());
+        String collect = roles.stream().map(Role::getRname).findFirst().get();
         //获取用户权限
         List<String> permissions=new ArrayList<>();
        roles.forEach(role -> {
@@ -33,7 +33,7 @@ public class ShiroDbRealm extends AuthorizingRealm {
                }
        );
        info.addStringPermissions(permissions);
-       info.addRoles(collect);
+       info.addRole(collect);
         return info;
     }
 

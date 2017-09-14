@@ -14,3 +14,7 @@ h2{
     color: #FF0000;
     text-align: center;
 }
+a{
+    float: right;
+    margin-right: 15px;
+}

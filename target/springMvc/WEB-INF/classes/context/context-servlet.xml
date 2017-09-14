@@ -12,8 +12,8 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-    <context:component-scan base-package="com.learn"></context:component-scan>
-    <mvc:annotation-driven />
+    <context:component-scan base-package="com.learn.controller"></context:component-scan>
+
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
@@ -42,11 +42,21 @@
         <property name="resourceLoaderPath" value="/WEB-INF/pages/"/>
         <property name="configLocation" value="classpath:velocity.properties"/>
     </bean>
+   <!-- <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="exposeSpringMacroHelpers" value="true"/>
 
+        <property name="exposeSessionAttributes" value="true"/>
+
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>-->
     <!-- 配置视图的显示 -->
     <bean id="ViewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
         <property name="suffix" value=".html" /><!-- 视图文件的后缀名 -->
         <property name="contentType" value="text/html;charset=UTF-8" />
+        <property name="toolboxConfigLocation" value="/WEB-INF/velocity-toolbox.xml"/>
       <!--  <property name="toolboxConfigLocation" value="/WEB-INF/tools.xml" />&lt;!&ndash;toolbox配置文件路径&ndash;&gt;
         <property name="dateToolAttribute" value="date" />&lt;!&ndash;日期函数名称&ndash;&gt;
         <property name="numberToolAttribute" value="number" />&lt;!&ndash;数字函数名称&ndash;&gt;
