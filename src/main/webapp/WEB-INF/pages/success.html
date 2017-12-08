@@ -8,6 +8,9 @@
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
     <script src="script/bootstrap/bootstrapValidator.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="bootstrap-fileinput/js/fileinput.min.js"></script>
+    <link rel="stylesheet" href="bootstrap-fileinput/css/fileinput.min.css">
+
     <style type="text/css">
         .container{
             margin:0 0;
@@ -28,6 +31,12 @@
    <!-- <div class="user">
     </div>
     <div class="userInfo"></div>-->
+   <div>
+       <form name="serForm" action="fileUpload.htm" method="post"  enctype="multipart/form-data">
+        <input id="file-1" type="file" name="file" class="file" data-show-preview="false" data-show-upload="false" showRemove="false"/>
+           <input type="submit" value="提交">
+       </form>
+   </div>
    <div class="container">
        <div class="row clearfix">
            <div class="col-md-12 column">

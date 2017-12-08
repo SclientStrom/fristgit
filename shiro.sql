@@ -1,3 +1,5 @@
+CREATE database shiro;
+use shiro;
 drop table if exists user;
 create table user(
    id int not null primary key auto_increment,
